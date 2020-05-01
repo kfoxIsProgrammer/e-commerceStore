@@ -1,0 +1,47 @@
+{{# if products}}
+<div class="row" style="text-align:center;padding-left:200px; padding-right:200px;" >
+	<div class="col" style="text-align:left">
+		  <ul class="list-group">
+			
+		  	{{# each products}}
+			<li class="list-group-item">
+			<img src="{{this.item.imagePath}}" width="40" height="40" alt="Computer Hope">
+			<strong>{{this.item.minorTitle}}</strong>
+
+				<span class="badge badge-success">${{this.price}}</span>
+				<div class="btn-group">
+					<button class="btn blue-gradient btn-sm dropdown-toggle" type="button" data-toggle="dropdown"> Action <span class="caret"></span></button>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="/reduce/{{this.item._id}}"> Reduce by one</a></li>
+						<li><a href="/remove/{{this.item._id}}"> Remove All</a></li>
+					</ul>
+
+				</div>
+				<span class="badge badge-default float-right m-2">{{this.qty}}</span>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+</div>
+<div class="row" style="text-align:center;padding-left:200px; padding-right:200px;" >
+	<div class="col" style="text-align:left">
+		<strong>Total:${{totalPrice}} </strong>
+	</div>
+</div>
+<hr>
+<div class="row" style="text-align:center;padding-left:200px; padding-right:200px;" >
+	<div class="col">
+		<a href="/checkout" type="button" class="btn btn-rounded btn-success">Checkout</a>
+
+	</div>
+</div>
+
+{{else}}
+<div class="row" style="text-align:center;padding-left:200px; padding-right:200px;" >
+	<div class="col" >
+		<h2>No Items in Cart</h2>
+	</div>
+</div>
+{{/if}}
+
+

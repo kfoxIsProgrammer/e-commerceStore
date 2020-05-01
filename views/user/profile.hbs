@@ -1,0 +1,33 @@
+<div class="row" style="text-align:center;padding-left:200px; padding-right:200px;" >
+	<div class="col" style="text-align:left">
+		<h1>User Profile</h1>
+		<hr>
+		<h2>My Orders</h2>
+		{{# each orders }}
+		
+		<!--Grid row-->                                     
+		
+		<div class="col-md-20" style="text-align:left;">
+		<!--Card-->                                                                                                              
+          <div class="card">                                                                                                     
+                                                                                                                                    
+            <!--Card content-->                                                                                                    
+            <div class="card-body text-center">                                                                                  
+              <!--Category & Title-->                                                                                                                                       
+               <ul class="list-group list-group-flush" style="text-align:left;">
+    				{{# each this.items}}
+  					<li class="list-group-item">
+    					<span class="badge badge-default float-right m-2"">${{this.price}}</span>
+    					<img src="{{this.item.imagePath}}" width="40" height="40" alt="Computer Hope">{{this.item.minorTitle}} | {{this.qty}} units
+  					</li>
+  					{{/each}}
+					</ul>                                      
+                    <div class="card-body bg-light" style="text-align:left;">
+  						<strong>Total Price: ${{this.cart.totalPrice}}</strong>
+  					</div>  
+  				</div>
+  				</div>                                                               
+         
+		{{/each}}
+	</div>
+</div>

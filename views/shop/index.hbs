@@ -1,0 +1,77 @@
+
+<div class="row">
+  <div class ="col">
+      <div id="success" class="alert alert-success {{#if noMessage}} d-none{{/if}}">
+          {{successMsg}}
+      </div>
+  </div>
+</div>
+ {{> navbar}}
+<h1>{{title}}</h1>
+<p>Buy my merch</p>
+{{# each products }}
+
+<!--Grid row-->                                     
+<div class="row wow fadeIn">
+ 
+{{# each this }}
+            
+             <!--Grid column-->                                                                                                         
+            
+            
+        <div class="col-lg-3 col-md-6 mb-4">                                                                                     
+                                                                                                                                   
+          <!--Card-->                                                                                                              
+          <div class="card">                                                                                                     
+                                                                                                                                   
+            <!--Card image-->                                                                                                      
+            <div class="view overlay">                                                                                           
+              <img src="{{this.imagePath}}" class="card-img-top"         
+                alt="">                                                                                                         
+              <a> 
+              <form action="/item" method="post" id='form{{this.productID}}'>
+              <input type="hidden" name='id'    value="{{productID}}">                                                                                                                 
+                <div class="mask rgba-white-slight" onclick="document.getElementById('form{{this.productID}}').submit();" >
+                 </div> 
+                 </form>                                                          </a>                                                                                                                 
+            </div>      
+                                                                                                                      
+            <!--Card image-->                                                                                                      
+                                                                                                                                   
+            <!--Card content-->                                                                                                    
+            <div class="card-body text-center">                                                                                  
+              <!--Category & Title-->                                                                                              
+              <a href="/cookie" class="grey-text">                                                                                    
+                <h5>{{this.majorTitle}}</h5>                                                                               
+              </a>                                                                                                                 
+              <h5>                                                                                                                 
+                <strong>                                                                                                           
+                  <a href="" class="dark-grey-text">{{this.minorTitle}}
+                  {{#if this.isHot}}
+                  <span class="badge badge-pill danger-color">NEW</span> 
+                  {{/if}} 
+
+                  {{#if this.isBest}}
+                  <span class="badge badge-pill primary-color">bestseller</span>  
+                  {{/if}}                                                 
+				
+                  </a>                                                                                                             
+                </strong>                                                                                                          
+              </h5>                                                                                                                
+                                                                                                                                   
+              <h4 class="font-weight-bold blue-text">                                                                            
+                <strong>{{this.price}}$</strong>                                                                                 
+              </h4>                                                                                                                
+                                                                                                                                   
+            </div>                                                                                                                 
+            <!--Card content-->                                                                                                    
+                                                                                                                                   
+          </div>                                                                                                                   
+          <!--Card-->                                                                                                              
+                                                                                                                                   
+        </div>                                                                                                                     
+        <!--Grid column-->
+        {{/each}}
+ </div>                                                                                                                       
+<!--Grid row-->
+{{/each}}
